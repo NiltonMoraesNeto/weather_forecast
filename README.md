@@ -8,4 +8,4 @@ npm i
 npm run dev
 ```
 
-<img src="/example.png" alt="Imagem de Exemplo">
+<img src="./public/example.png" alt="Imagem de Exemplo">
