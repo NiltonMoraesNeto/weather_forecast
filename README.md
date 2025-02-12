@@ -7,3 +7,5 @@ Projeto feito em [React](https://react.dev/) com [Next.js](https://nextjs.org), 
 npm i
 npm run dev
 ```
+
+<img src="/example.png" alt="Imagem de Exemplo">
