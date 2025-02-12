@@ -17,7 +17,6 @@ export default function Login() {
     if (!city) return;
     try {
       const response = await searchWeatherForecast(city, API_KEY);
-      console.log("🚀  response - ", response);
       if (response) {
         setWeather(response.data);
       } else {
@@ -39,7 +38,7 @@ export default function Login() {
       <div className="space-y-4 w-full max-w-md p-8 bg-card rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-center">Previsão do tempo</h1>
         <Input
-          type="texte"
+          type="text"
           placeholder="Digite a cidade"
           value={city}
           onChange={(e) => setCity(e.target.value)}
