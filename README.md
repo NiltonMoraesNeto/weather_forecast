@@ -5,6 +5,9 @@ Projeto feito em [React](https://react.dev/) com [Next.js](https://nextjs.org), 
 
 ```bash
 npm i
+Adicionar um .env na raiz do projeto
+NEXT_PUBLIC_API_URL='https://api.openweathermap.org/data/2.5/'
+NEXT_PUBLIC_API_KEY='sua chave'
 npm run dev
 ```
 
