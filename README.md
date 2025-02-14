@@ -4,6 +4,7 @@ Projeto feito em [React](https://react.dev/) com [Next.js](https://nextjs.org), 
 BackEnd é consultado pelo site [openweathermap](https://openweathermap.org/)
 ##
 Biblioteca de testes é o [Jest](https://jestjs.io/pt-BR/)
+##
 
 ## Getting Started
 
