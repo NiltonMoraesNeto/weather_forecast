@@ -3,7 +3,10 @@ import React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { searchWeatherForecast } from "@/services/weather-forecast-service";
+import {
+  searchWeatherForecast,
+  searchWeatherForecastNexDays,
+} from "@/services/weather-forecast-service";
 import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ListWeather } from "@/models/weather";
@@ -17,6 +20,8 @@ export default function Weather() {
     if (!city) return;
     try {
       const response = await searchWeatherForecast(city, API_KEY);
+      const teste = await searchWeatherForecastNexDays(city, API_KEY);
+      console.log("🚀  teste - ", teste);
       if (response) {
         setWeather(response.data);
       } else {
@@ -65,9 +70,42 @@ export default function Weather() {
             <p className="text-lg">
               🌡️ Temperatura: {Math.round(weather.main.temp)}°C
             </p>
+            <div className="flex justify-center mb-2 mt-2">
+              <p className="text-lg mr-4">
+                Min: {Math.round(weather.main.temp_min)}°C
+              </p>
+              <p className="text-lg">
+                Max: {Math.round(weather.main.temp_max)}°C
+              </p>
+            </div>
             <p className="text-lg">
               ☁️ Clima: {weather.weather[0].description}
             </p>
+            <p className="text-lg">☁️ Umidade: {weather.main.humidity}%</p>
+            <div className="flex justify-center mb-2 mt-2">
+              <p className="text-lg mr-4">
+                Nascer do sol:{" "}
+                {new Date(weather.sys.sunrise * 1000).toLocaleTimeString(
+                  "pt-BR",
+                  {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                  }
+                )}
+              </p>
+              <p className="text-lg">
+                Pôr do sol:{" "}
+                {new Date(weather.sys.sunset * 1000).toLocaleTimeString(
+                  "pt-BR",
+                  {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                  }
+                )}
+              </p>
+            </div>
           </div>
         )}
       </div>
