@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ListWeather } from "@/models/weather";
 
-export default function Login() {
+export default function Weather() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState<ListWeather | null>(null);
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
@@ -25,7 +25,8 @@ export default function Login() {
           description: "Erro ao buscar previsão do tempo",
         });
       }
-    } catch {
+    } catch (error) {
+      console.error("Erro na chamada da API:", error);
       toast.error("Error", {
         description: "Erro ao buscar previsão do tempo",
       });
